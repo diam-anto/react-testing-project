@@ -18,7 +18,7 @@ I also removed a few unnecessary files, and updated
 - index.css
 - this README file 😄
 
-## Install React Boostrap, Vitest, and React Testing Library
+## Install React Bootstrap, Vitest, and React Testing Library
 
 ```sh
 npm install -D vitest @vitest/ui eslint-plugin-vitest
@@ -89,6 +89,7 @@ In _.eslintrc.cjs_:
 ```js
    'plugin:testing-library/react',
    'plugin:vitest/recommended',
+   'plugin:jest-dom/recommended',
 ```
 
 1. This step avoids linting errors when using the `test` and `expect` Vitest globals without importing them first.
@@ -126,7 +127,7 @@ Add these to the `rules` object in _.eslintrc.cjs_:
 ```json
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true
@@ -137,7 +138,7 @@ Add these to the `rules` object in _.eslintrc.cjs_:
 
 ## Update vite configuration for tests
 
-Update _vite.config.js_ based on the [Vitest Testing Library example](https://github.com/vitest-dev/vitest/blob/main/examples/react-testing-lib/vite.config.ts). Add this property / value to the `defineConfig` argument:
+Update _vite.config.js_ based on the [Vitest Testing Library example](https://github.com/vitest-dev/vitest/blob/main/examples/react/vitest.config.ts). Add this property / value to the `defineConfig` argument:
 
 ```js
   test: {
@@ -147,7 +148,7 @@ Update _vite.config.js_ based on the [Vitest Testing Library example](https://gi
     setupFiles: "./src/setup.js",
     // you might want to disable the `css: true` line, since we don't have
     // tests that rely on CSS -- and parsing CSS is slow.
-    // I'm leaving it in here becasue often people want to parse CSS in tests.
+    // I'm leaving it in here because often people want to parse CSS in tests.
     css: true,
   },
 ```

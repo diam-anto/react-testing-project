@@ -10,6 +10,7 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:testing-library/react",
     "plugin:vitest/recommended",
+    "plugin:jest-dom/recommended",
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parserOptions: { ecmaVersion: "latest", sourceType: "module" },
@@ -20,6 +21,9 @@ module.exports = {
       "warn",
       { allowConstantExport: true },
     ],
+    "no-unused-vars": "warn", // warning, not error
+    "vitest/expect-expect": "off", // distracting red squiggles while writing tests
+    "react/prop-types": "off", // turn off props validation
   },
   globals: {
     ...vitest.environments.env.globals,
