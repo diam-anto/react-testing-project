@@ -26,7 +26,5 @@ test('handle errors for scoops and toppings', async () => {
 
     const alerts = await screen.findAllByText("An unexpected error occurred. Please try again later.");
 
-    logRoles(container);
-
     expect(alerts).toHaveLength(2);
 })
